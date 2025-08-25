@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Zarządzania Licencjami API</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1><i class="fas fa-key"></i> System Zarządzania Licencjami API</h1>
+                    <p>Twórz, zarządzaj i monitoruj swoje licencje API</p>
+                </div>
+                <div class="user-info">
+                    <span>Witaj, <strong id="current-user">Administrator</strong></span>
+                    <button onclick="logout()" class="btn-secondary">
+                        <i class="fas fa-sign-out-alt"></i> Wyloguj
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-icon total">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-licenses">0</h3>
+                        <p>Wszystkie licencje</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon active">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="active-licenses">0</h3>
+                        <p>Aktywne licencje</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon expired">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="expired-licenses">0</h3>
+                        <p>Wygasłe licencje</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="add-license-form">
+                    <h2><i class="fas fa-plus-circle"></i> Dodaj nową licencję</h2>
+                    <form id="license-form">
+                        <div class="form-group">
+                            <label for="license-key">Klucz licencji:</label>
+                            <input type="text" id="license-key" required placeholder="Wprowadź unikalny klucz licencji">
+                        </div>
+                        <div class="form-group">
+                            <label for="expiration">Data wygaśnięcia:</label>
+                            <input type="datetime-local" id="expiration" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hwid">HWID (opcjonalnie):</label>
+                            <input type="text" id="hwid" placeholder="Wpisz HWID lub zostaw puste">
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-plus"></i> Dodaj licencję
+                            </button>
+                            <button type="button" id="generate-key" class="btn-secondary">
+                                <i class="fas fa-magic"></i> Generuj klucz
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="licenses-list">
+                    <h2><i class="fas fa-list"></i> Lista licencji</h2>
+                    <div class="filters">
+                        <input type="text" id="search-license" placeholder="Wyszukaj licencję...">
+                        <select id="filter-status">
+                            <option value="all">Wszystkie</option>
+                            <option value="active">Aktywne</option>
+                            <option value="expired">Wygasłe</option>
+                        </select>
+                    </div>
+                    <div class="table-container">
+                        <table id="licenses-table">
+                            <thead>
+                                <tr>
+                                    <th>Klucz licencji</th>
+                                    <th>HWID</th>
+                                    <th>Data wygaśnięcia</th>
+                                    <th>Status</th>
+                                    <th>Akcje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dane zostaną wstawione dynamicznie przez JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal do potwierdzenia usunięcia -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Potwierdzenie usunięcia</h2>
+            <p>Czy na pewno chcesz usunąć licencję <span id="license-to-delete"></span>?</p>
+            <div class="modal-buttons">
+                <button id="confirm-delete" class="btn-danger">Tak, usuń</button>
+                <button id="cancel-delete" class="btn-secondary">Anuluj</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
