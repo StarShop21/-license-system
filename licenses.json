@@ -1,18 +1,16 @@
-[
-  {
-    "id": 1,
-    "key": "nigger2",
-    "hwid": "123124568bdf",
-    "expires_at": "222222-02-22 22:22:00",
-    "created_at": "2025-08-25 15:17:23",
-    "status": "active"
-  },
-  {
-    "id": 2,
-    "key": "nigger22",
-    "hwid": null,
-    "expires_at": "2223-02-22 22:02:00",
-    "created_at": "2025-08-25 15:22:26",
-    "status": "active"
-  }
-]
+{
+  "licenses": [
+    {
+      "key": "ABC1-DEF2-GHI3-JKL4",
+      "hwid": "HWID123456789",
+      "expires_at": "2025-12-31 23:59:59",
+      "customer": "Jan Kowalski"
+    },
+    {
+      "key": "XYZ9-8765-4321-0000", 
+      "hwid": "HWID987654321",
+      "expires_at": "2024-06-30 12:00:00",
+      "customer": "Anna Nowak"
+    }
+  ]
+}
