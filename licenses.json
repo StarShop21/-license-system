@@ -1,16 +1,10 @@
 {
   "licenses": [
     {
-      "key": "ABC1-DEF2-GHI3-JKL4",
-      "hwid": "HWID123456789",
-      "expires_at": "2025-12-31 23:59:59",
-      "customer": "Jan Kowalski"
-    },
-    {
-      "key": "XYZ9-8765-4321-0000", 
-      "hwid": "HWID987654321",
-      "expires_at": "2024-06-30 12:00:00",
-      "customer": "Anna Nowak"
+      "key": "44",     
+      "hwid": "PQMAN058JI71VZ",    
+      "expires_at": "25.08.2025",    
+      "customer": "MOja licencja"    
     }
   ]
 }
